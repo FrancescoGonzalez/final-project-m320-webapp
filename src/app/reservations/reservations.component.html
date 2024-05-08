@@ -3,72 +3,56 @@
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700">
     <tr>
       <th scope="col" class="px-6 py-3">
-        Product name
+        Reservation Id
       </th>
       <th scope="col" class="px-6 py-3">
-        Color
+        Customer Id
       </th>
       <th scope="col" class="px-6 py-3">
-        Category
+        Room Id
       </th>
       <th scope="col" class="px-6 py-3">
-        Price
+        number of people
       </th>
       <th scope="col" class="px-6 py-3">
-        <span class="sr-only">Edit</span>
+        checkin date
+      </th>
+      <th scope="col" class="px-6 py-3">
+        checkout date
+      </th>
+      <th scope="col" class="px-6 py-3">
+        Edit
       </th>
     </tr>
     </thead>
     <tbody>
-    <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50">
+    <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50" *ngFor="let r of reservations">
       <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-        Apple MacBook Pro 17"
+        {{r.id}}
       </th>
       <td class="px-6 py-4">
-        Silver
+        {{r.customerId}}
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+          info
+        </button>
       </td>
       <td class="px-6 py-4">
-        Laptop
+        {{r.bookableId}}
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+          info
+        </button>
       </td>
       <td class="px-6 py-4">
-        $2999
-      </td>
-      <td class="px-6 py-4 text-right">
-        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-      </td>
-    </tr>
-    <tr class="bg-white border-b hover:bg-gray-50">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-        Microsoft Surface Pro
-      </th>
-      <td class="px-6 py-4">
-        White
+        {{r.numberOfPeople}}
       </td>
       <td class="px-6 py-4">
-        Laptop PC
+        {{r.checkIn | date: 'yyyy/MM/dd'}}
       </td>
       <td class="px-6 py-4">
-        $1999
+        {{r.checkOut | date: 'yyyy/MM/dd'}}
       </td>
-      <td class="px-6 py-4 text-right">
-        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-      </td>
-    </tr>
-    <tr class="bg-white hover:bg-gray-50">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-        Magic Mouse 2
-      </th>
-      <td class="px-6 py-4">
-        Black
-      </td>
-      <td class="px-6 py-4">
-        Accessories
-      </td>
-      <td class="px-6 py-4">
-        $99
-      </td>
-      <td class="px-6 py-4 text-right">
-        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+      <td class="px-6 py-4 text-blue-400 hover:underline">
+        <a href="/">edit</a>
       </td>
     </tr>
     </tbody>
