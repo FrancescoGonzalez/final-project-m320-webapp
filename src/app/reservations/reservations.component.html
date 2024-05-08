@@ -31,13 +31,13 @@
         {{r.id}}
       </th>
       <td class="px-6 py-4">
-        {{r.customerId}}
+        {{this.customerService.getCustomer(r.customerId).subscribe()}}
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
           info
         </button>
       </td>
       <td class="px-6 py-4">
-        {{r.bookableId}}
+        {{this.roomService.getRoom(r.bookableId).subscribe()}}
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
           info
         </button>

@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Reservation} from "../../model/Reservation";
 import {ReservationService} from "../../services/reservation.service";
+import {CustomerService} from "../../services/customer.service";
+import {RoomService} from "../../services/room.service";
 import {DatePipe, NgForOf} from "@angular/common";
+import {Customer} from "../../model/Customer";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-reservations',
@@ -17,7 +21,7 @@ export class ReservationsComponent implements OnInit {
 
   reservations: Reservation[] = [];
 
-  constructor(private reservationService: ReservationService) { }
+  constructor(private reservationService: ReservationService, public customerService: CustomerService, public roomService: RoomService) { }
 
   ngOnInit(): void {
     this.reservationService.getReservations().subscribe(res => {
@@ -25,4 +29,9 @@ export class ReservationsComponent implements OnInit {
     });
   }
 
+  getCustomer(id: number): Observable<Customer> {
+    return this.customerService.getCustomer(id);
+  }
+
+  protected readonly CustomerService = CustomerService;
 }
