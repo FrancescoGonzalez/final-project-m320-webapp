@@ -4,8 +4,6 @@ import {ReservationService} from "../../services/reservation.service";
 import {CustomerService} from "../../services/customer.service";
 import {RoomService} from "../../services/room.service";
 import {DatePipe, NgForOf} from "@angular/common";
-import {Customer} from "../../model/Customer";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-reservations',
@@ -29,8 +27,12 @@ export class ReservationsComponent implements OnInit {
     });
   }
 
-  getCustomer(id: number): Observable<Customer> {
-    return this.customerService.getCustomer(id);
+  getBookable(id: number): void {
+    this.roomService.getRoom(id).subscribe(res => alert(`Room ID: ${res.id}\nNumber: ${res.number}\nType: ${res.type}\nMax People: ${res.maxPeople}\nPrice per Person: ${res.priceForPerson}`))
+  }
+
+  getCustomer(id: number): void {
+    this.customerService.getCustomer(id).subscribe(res => alert(`Customer ID: ${res.id}\nFirst Name: ${res.firstName}\nLast Name: ${res.lastName}\nBirth Date: ${res.birthDate}\nNationality: ${res.nationality}`))
   }
 
   protected readonly CustomerService = CustomerService;

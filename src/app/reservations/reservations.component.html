@@ -32,13 +32,13 @@
       </th>
       <td class="px-6 py-4">
         {{r.customerId}}
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+        <button (click)="getCustomer(r.customerId)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
           info
         </button>
       </td>
       <td class="px-6 py-4">
         {{r.bookableId}}
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+        <button (click)="getBookable(r.bookableId)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
           info
         </button>
       </td>
