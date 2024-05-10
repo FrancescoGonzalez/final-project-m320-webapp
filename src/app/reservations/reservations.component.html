@@ -1,6 +1,6 @@
 <div class="relative overflow-x-auto shadow-md m-16">
   <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
     <tr>
       <th scope="col" class="px-6 py-3">
         Reservation Id
@@ -26,18 +26,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50" *ngFor="let r of reservations">
+    <tr class="bg-white border-b hover:bg-gray-50" *ngFor="let r of reservations">
       <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
         {{r.id}}
       </th>
       <td class="px-6 py-4">
-        {{this.customerService.getCustomer(r.customerId).subscribe()}}
+        {{r.customerId}}
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
           info
         </button>
       </td>
       <td class="px-6 py-4">
-        {{this.roomService.getRoom(r.bookableId).subscribe()}}
+        {{r.bookableId}}
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
           info
         </button>
