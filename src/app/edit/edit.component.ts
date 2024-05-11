@@ -32,9 +32,13 @@ export class EditComponent{
   }
 
   loadReservation() {
-    this.reservationService.getReservation(this.id).subscribe(res => {
-      this.reservation = res;
-    });
+    setTimeout(() =>
+      {
+        this.reservationService.getReservation(this.id).subscribe(res => {
+          this.reservation = res;
+        });
+      },
+      2000);
   }
 
   constructor(private reservationService: ReservationService) {
@@ -57,12 +61,28 @@ export class EditComponent{
       } else {
         console.log("Reservation not updated");
       }
-      close();
     });
+    location.reload()
+    this.isHidden = true;
+    this.closeEdit.emit()
   }
 
   close() {
     this.isHidden = true;
     this.closeEdit.emit()
+  }
+
+  delete() {
+    this.reservationService.deleteReservation(this.reservation.id).subscribe(res => {
+      if (res) {
+        console.log("Reservation deleted!");
+      } else {
+        console.log("Reservation not deleted");
+      }
+    });
+    this.loadReservation();
+    this.isHidden = true;
+    this.closeEdit.emit()
+    location.reload()
   }
 }
