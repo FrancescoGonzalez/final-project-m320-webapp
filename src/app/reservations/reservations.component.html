@@ -6,6 +6,9 @@
         Reservation Id
       </th>
       <th scope="col" class="px-6 py-3">
+        Price
+      </th>
+      <th scope="col" class="px-6 py-3">
         Customer Id
       </th>
       <th scope="col" class="px-6 py-3">
@@ -30,6 +33,11 @@
       <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
         {{r.id}}
       </th>
+      <td class="px-6 py-4">
+        <button (click)="getPrice(r.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+          get price
+        </button>
+      </td>
       <td class="px-6 py-4">
         {{r.customerId}}
         <button (click)="getCustomer(r.customerId)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">

@@ -31,5 +31,9 @@ export class ReservationService {
     return this.http.delete<boolean>(`${this.apiUrl}/reservation/${id}`);
   }
 
+  getReservationPrice(id: number): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/reservation/${id}/price`);
+  }
+
 
 }

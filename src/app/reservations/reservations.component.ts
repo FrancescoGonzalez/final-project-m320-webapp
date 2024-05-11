@@ -52,5 +52,9 @@ export class ReservationsComponent implements OnInit {
     this.customerService.getCustomer(id).subscribe(res => alert(`Customer ID: ${res.id}\nFirst Name: ${res.firstName}\nLast Name: ${res.lastName}\nBirth Date: ${res.birthDate}\nNationality: ${res.nationality}`))
   }
 
+  getPrice(id: number): void {
+    this.reservationService.getReservationPrice(id).subscribe(res => {alert("The price would be " + res + " CHF in total.")});
+  }
+
   protected readonly CustomerService = CustomerService;
 }
