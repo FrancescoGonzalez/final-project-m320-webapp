@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Reservation} from "../../model/Reservation";
 import {ReservationService} from "../../services/reservation.service";
 import {FormsModule} from "@angular/forms";
@@ -17,6 +17,7 @@ import {NgClass} from "@angular/common";
 export class EditComponent{
   reservation: Reservation;
   @Input() isHidden: boolean = true;
+  @Output() closeEdit = new EventEmitter<void>();
   constructor(private reservationService: ReservationService) {
     this.reservation = {
       bookableId: 0,
@@ -38,12 +39,12 @@ export class EditComponent{
       } else {
         console.log("Reservation not updated");
       }
+      close();
     });
-    close();
   }
 
   close() {
     this.isHidden = true;
-    alert("Reservation not updated!");
+    this.closeEdit.emit()
   }
 }

@@ -55,7 +55,7 @@
         <button (click)="startEditing(r.id)">edit</button>
       </td>
       <td>
-        <app-edit [id]="r.id" [isHidden]="r.id !== editingReservationId"></app-edit>
+        <app-edit [id]="r.id" [isHidden]="r.id !== editingReservationId" (closeEdit)="editingReservationId = null"></app-edit>
       </td>
     </tr>
     </tbody>
