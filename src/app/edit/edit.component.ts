@@ -18,6 +18,25 @@ export class EditComponent{
   reservation: Reservation;
   @Input() isHidden: boolean = true;
   @Output() closeEdit = new EventEmitter<void>();
+
+  private _id: number;
+
+  @Input()
+  set id(value: number) {
+    this._id = value;
+    this.loadReservation();
+  }
+
+  get id(): number {
+    return this._id;
+  }
+
+  loadReservation() {
+    this.reservationService.getReservation(this.id).subscribe(res => {
+      this.reservation = res;
+    });
+  }
+
   constructor(private reservationService: ReservationService) {
     this.reservation = {
       bookableId: 0,
@@ -27,9 +46,8 @@ export class EditComponent{
       id: 0,
       numberOfPeople: 0,
     }
-    this.reservationService.getReservation(2).subscribe(res => {
-      this.reservation = res;
-    });
+    this._id = 0;
+    this.loadReservation()
   }
 
   confirm() {

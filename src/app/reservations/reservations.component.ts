@@ -24,15 +24,24 @@ export class ReservationsComponent implements OnInit {
   constructor(private reservationService: ReservationService, public customerService: CustomerService, public roomService: RoomService) { }
 
   ngOnInit(): void {
-    this.reservationService.getReservations().subscribe(res => {
-      this.reservations = res;
-    });
+    this.refresh();
   }
 
   editingReservationId: number | null = null;
 
   startEditing(id: number) {
     this.editingReservationId = id;
+  }
+
+  stopEditing() {
+    this.editingReservationId = null;
+    this.refresh();
+  }
+
+  refresh() {
+    this.reservationService.getReservations().subscribe(res => {
+      this.reservations = res;
+    });
   }
 
   getBookable(id: number): void {
