@@ -4,13 +4,15 @@ import {ReservationService} from "../../services/reservation.service";
 import {CustomerService} from "../../services/customer.service";
 import {RoomService} from "../../services/room.service";
 import {DatePipe, NgForOf} from "@angular/common";
+import {EditComponent} from "../edit/edit.component";
 
 @Component({
   selector: 'app-reservations',
   standalone: true,
   imports: [
     NgForOf,
-    DatePipe
+    DatePipe,
+    EditComponent
   ],
   templateUrl: './reservations.component.html',
   styleUrl: './reservations.component.css'
@@ -25,6 +27,12 @@ export class ReservationsComponent implements OnInit {
     this.reservationService.getReservations().subscribe(res => {
       this.reservations = res;
     });
+  }
+
+  editingReservationId: number | null = null;
+
+  startEditing(id: number) {
+    this.editingReservationId = id;
   }
 
   getBookable(id: number): void {

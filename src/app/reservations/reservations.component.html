@@ -52,9 +52,14 @@
         {{r.checkOut | date: 'yyyy/MM/dd'}}
       </td>
       <td class="px-6 py-4 text-blue-400 hover:underline">
-        <a href="/">edit</a>
+        <button (click)="startEditing(r.id)">edit</button>
+      </td>
+      <td>
+        <app-edit [id]="r.id" [isHidden]="r.id !== editingReservationId"></app-edit>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
+
+
