@@ -57,9 +57,9 @@ export class EditComponent{
   confirm() {
     this.reservationService.updateReservation(this.reservation.id, this.reservation).subscribe(res => {
       if (res) {
-        console.log("Reservation updated!");
+        alert("Reservation updated!");
       } else {
-        console.log("Reservation not updated");
+        alert("Reservation not updated");
       }
     });
     location.reload()
@@ -75,9 +75,9 @@ export class EditComponent{
   delete() {
     this.reservationService.deleteReservation(this.reservation.id).subscribe(res => {
       if (res) {
-        console.log("Reservation deleted!");
+        alert("Reservation deleted!");
       } else {
-        console.log("Reservation not deleted");
+        alert("Reservation not deleted");
       }
     });
     this.loadReservation();
