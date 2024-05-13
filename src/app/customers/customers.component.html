@@ -1,0 +1,45 @@
+<div class="relative overflow-x-auto shadow-md m-16">
+  <h3 class="text-3xl font-bold">Customers</h3>
+  <br>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+    <tr>
+      <th scope="col" class="px-6 py-3">
+        Customer Id
+      </th>
+      <th scope="col" class="px-6 py-3">
+        first name
+      </th>
+      <th scope="col" class="px-6 py-3">
+        last name
+      </th>
+      <th scope="col" class="px-6 py-3">
+        birth
+      </th>
+      <th scope="col" class="px-6 py-3">
+        nationality
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="bg-white border-b hover:bg-gray-50" *ngFor="let c of customers">
+      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+        {{c.id}}
+      </th>
+      <td class="px-6 py-4">
+        {{c.firstName}}
+      </td>
+      <td class="px-6 py-4">
+        {{c.lastName}}
+      </td>
+      <td class="px-6 py-4">
+        {{c.birthDate}}
+      </td>
+      <td class="px-6 py-4">
+        {{c.nationality}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

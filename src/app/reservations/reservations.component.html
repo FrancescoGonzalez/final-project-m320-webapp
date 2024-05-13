@@ -1,4 +1,6 @@
 <div class="relative overflow-x-auto shadow-md m-16">
+  <h3 class="text-3xl font-bold">Reservations</h3>
+  <br>
   <table class="w-full text-sm text-left rtl:text-right text-gray-500">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
     <tr>
@@ -34,19 +36,19 @@
         {{r.id}}
       </th>
       <td class="px-6 py-4">
-        <button (click)="getPrice(r.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+        <button (click)="getPrice(r.id)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-s rounded-se text-xs">
           get price
         </button>
       </td>
       <td class="px-6 py-4">
         {{r.customerId}}
-        <button (click)="getCustomer(r.customerId)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+        <button (click)="getCustomer(r.customerId)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-s rounded-se text-xs">
           info
         </button>
       </td>
       <td class="px-6 py-4">
         {{r.bookableId}}
-        <button (click)="getBookable(r.bookableId)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full text-xs">
+        <button (click)="getBookable(r.bookableId)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-s rounded-se text-xs">
           info
         </button>
       </td>
